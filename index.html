@@ -1,13 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./src/styles/output.css">
-    <script src="./src/scripts/main.js" defer></script>
+    <script defer src="./src/scripts/main.js" type="module"></script>
     <title>PF Windbnd Vanilla</title>
 </head>
+
 <body>
-    <h1 class="bg-slate-800 text-white text-2xl">Hola mundo!</h1>
+    <header class="flex flex-wrap justify-between p-4 items-center shadow-lg gap-4">
+        <figure>
+            <img src="./src/images/icons/logo.svg" alt="logo">
+        </figure>
+        <nav class="flex gap-4 items-center">
+            <div class="flex border border-gray-500 h-9 items-center flex-grow max-w-2xl rounded-md px-2 ">
+
+                <input placeholder="Country" type="search" id="search-input" class="w-full h-full px-2 outline-none">
+            </div>
+            <div class="flex border border-gray-500 h-9 items-center flex-grow max-w-2xl rounded-md px-2 ">
+
+                <input placeholder="Guest" type="search" id="search-input" class="w-full h-full px-2 outline-none">
+            </div>
+            <button class=" h-9 px-4 rounded-md cursor-pointer" id="search-button">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="#eb5757" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                </svg>
+            </button>
+        </nav>
+    </header>
+
+    <main class="p-4">
+        <div class="flex  justify-between p-4 items-center ">
+            <h1 class="font-bold text-2xl">Stays in <span>Finland</span></h1>
+            <p class="text-gray-400"><span>1</span>stays</p>
+        </div>
+        <ul class="grid cards-grid py-2 gap-4 justify-center w-full md:grid-cols-3" id="character-list">
+            <!-- <li class="flex flex-col bg-slate-900 rounded-lg shadow-md overflow-hidden w-full pb-4 sm:flex-row sm:h-60 sm:pb-0">
+
+                <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="" class="w-full object-cover sm:w-1/2">
+
+                <div aria-label="card content" class="text-white p-2 flex flex-col gap-4">
+                    <h3 class="text-xl font-semibold">character Name</h3>
+                    <p
+                        class="relative before:absolute before:size-2 before:bg-gray-300 ml-4 before:-left-4 before:top-2.5 before:rounded-full">
+                        <span>status</span> - <span>species</span></p>
+
+                    <p>
+                        <span class="text-gray-600 font-bold">Last known Location:</span>
+                        <br>
+                        Last location
+                    </p>
+                </div>
+            </li> -->
+        </ul>
+    </main>
 </body>
+
 </html>
