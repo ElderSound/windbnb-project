@@ -691,6 +691,11 @@
     --tw-outline-style: none;
     outline-style: none;
   }
+  .focus-within\:rounded-lg {
+    &:focus-within {
+      border-radius: var(--radius-lg);
+    }
+  }
   .focus-within\:rounded-t-lg {
     &:focus-within {
       border-top-left-radius: var(--radius-lg);
@@ -707,6 +712,12 @@
     &:focus-within {
       border-style: var(--tw-border-style);
       border-width: 1px;
+    }
+  }
+  .focus-within\:border-2 {
+    &:focus-within {
+      border-style: var(--tw-border-style);
+      border-width: 2px;
     }
   }
   .focus-within\:border-gray-400 {
@@ -1031,6 +1042,13 @@
       box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
     }
   }
+  .md\:focus-within\:rounded-lg {
+    @media (width >= 48rem) {
+      &:focus-within {
+        border-radius: var(--radius-lg);
+      }
+    }
+  }
   .md\:focus-within\:rounded-none {
     @media (width >= 48rem) {
       &:focus-within {
@@ -1067,6 +1085,14 @@
       &:focus-within {
         border-bottom-right-radius: 0;
         border-bottom-left-radius: 0;
+      }
+    }
+  }
+  .md\:focus-within\:border-2 {
+    @media (width >= 48rem) {
+      &:focus-within {
+        border-style: var(--tw-border-style);
+        border-width: 2px;
       }
     }
   }
