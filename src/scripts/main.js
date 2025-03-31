@@ -134,7 +134,7 @@ modalSearch.addEventListener("click", (e) => {
   // Solo actualizar el span si hay resultados
   if (filtered.length > 0) {
     filteredCity.textContent =
-      cityValue.charAt(0).toUpperCase() + cityValue.slice(1) + " "; // Capitaliza la primera letra
+      cityValue.charAt(0).toUpperCase() + cityValue.slice(1) + ", "; // Capitaliza la primera letra
   } else {
     filteredCity.textContent = ""; // Deja el span vacío si no hay resultados
   }
