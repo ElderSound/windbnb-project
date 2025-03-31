@@ -10,22 +10,25 @@
 </head>
 
 <body>
-    <header class="flex flex-wrap justify-between p-4 items-center shadow-lg gap-4">
-        <figure>
+    <header class="flex flex-wrap justify-between p-4 lg:pt-4 items-center gap-4 lg:max-w-[1000px] mx-auto">
+        <figure class="pl-3 md:pl-0">
             <img src="./src/images/icons/logo.svg" alt="logo">
         </figure>
-        <nav class="flex gap-4 items-center">
-            <div class="flex border border-gray-500 h-9 items-center flex-grow max-w-2xl rounded-md px-2 ">
+        <nav class="flex gap-4 h-15 items-center shadow-sm mx-5 md:mx-0 rounded-xl w-full md:max-w-[350px] m-auto"
+            id="nav-modal">
+            <div class="flex  h-9 items-center flex-grow max-w-1xl rounded-md px-1 ">
 
-                <input placeholder="Country" type="search" id="search-input" class="w-full h-full px-2 outline-none">
+                <input placeholder="Add location" type="search"
+                    class="w-full h-full text-center outline-none border-none bg-transparent ">
             </div>
-            <div class="flex border border-gray-500 h-9 items-center flex-grow max-w-2xl rounded-md px-2 ">
+            <div class="flex  h-15 items-center flex-grow max-w-1xl  px-1 border-r-1 border-l-1 border-gray-100   ">
 
-                <input placeholder="Guest" type="search" id="search-input" class="w-full h-full px-2 outline-none">
+                <input placeholder="Add guests" type="search"
+                    class="w-full h-full text-center  outline-none border-none bg-transparent appearance-none">
             </div>
-            <button class=" h-9 px-4 rounded-md cursor-pointer" id="search-button">
+            <button class=" h-9 pr-4 m-auto rounded-md  cursor-pointer" id="search-button">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="#eb5757" class="size-6">
+                    stroke="#eb5757" class="size-5">
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                 </svg>
@@ -34,30 +37,106 @@
     </header>
 
     <main class="p-4">
-        <div class="flex  justify-between p-4 items-center ">
-            <h1 class="font-bold text-2xl">Stays in <span>Finland</span></h1>
-            <p class="text-gray-400"><span>1</span>stays</p>
+        <div class="flex  justify-between p-4 items-center lg:max-w-[1000px] mx-auto ">
+            <h1 class="font-bold text-2xl">Stays in <span id="filtered-city"></span>Finland</h1>
+            <p class="text-gray-400"><span id="count">12+</span>stays</p>
         </div>
-        <ul class="grid cards-grid py-2 gap-4 justify-center w-full md:grid-cols-3" id="character-list">
-            <!-- <li class="flex flex-col bg-slate-900 rounded-lg shadow-md overflow-hidden w-full pb-4 sm:flex-row sm:h-60 sm:pb-0">
+        <ul class="grid cards-grid py-2 gap-4 justify-center w-full md:grid-cols-2 lg:grid-cols-3 mx-auto lg:max-w-[1000px] "
+            id="character-list">
+            <!-- CARDS-->
 
-                <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="" class="w-full object-cover sm:w-1/2">
-
-                <div aria-label="card content" class="text-white p-2 flex flex-col gap-4">
-                    <h3 class="text-xl font-semibold">character Name</h3>
-                    <p
-                        class="relative before:absolute before:size-2 before:bg-gray-300 ml-4 before:-left-4 before:top-2.5 before:rounded-full">
-                        <span>status</span> - <span>species</span></p>
-
-                    <p>
-                        <span class="text-gray-600 font-bold">Last known Location:</span>
-                        <br>
-                        Last location
-                    </p>
-                </div>
-            </li> -->
         </ul>
     </main>
+    <!-- MODAL-->
+    <div id="modal" class=" hidden fixed inset-0 z-10 flex items-start justify-center bg-black/50 ">
+        <div class="bg-white px-10 py-5 w-full shadow-lg min-h-140 relative">
+            <div class="flex justify-between py-4">
+                <h2 class=" text-gray-600 text-lg font-semibold py-2">Edit Your Search</h2>
+                <button class="close cursor-pointer text-xl font-bold md:hidden" id="open">&times;</button>
+            </div>
+            <!-- MODAL nav-->
+            <nav id="contactForm"
+                class=" md:flex  md:flex-2/3 md:items-center md:w-full md:m-auto md:border md:border-l-1 md:rounded-lg md:border-gray-200 md:shadow-sm">
+                <div
+                    class="border md:w-full md:justify-between md:mx-auto md:border-none border-l-1 rounded-lg border-gray-200 shadow-sm md:shadow-none md:rounded-r-none md:flex md:items-center ">
+                    <div
+                        class="flex flex-col md:mx-auto w-full h-full flex-grow md:flex-1 px-1  focus-within:rounded-t-lg md:focus-within:rounded-l-lg md:focus-within:rounded-t-none focus-within:border focus-within:border-gray-400 ">
+                        <label for="modal-search-input" class="block text-sm font-semibold text-gray-600 pl-4 py-2">
+                            LOCATION</label>
+                        <input placeholder="Add location" type="search" id="modal-search-input"
+                            class="w-full h-full outline-none border-none bg-transparent appearance-none  pl-4 pb-4">
+                    </div>
+                    <div
+                        class="flex md:w-full md:px-auto md:mx-auto h-full w-full flex-col flex-grow md:flex-1 max-w-1xl focus-within:rounded-b-lg md:focus-within:rounded-b-none md:border-t-none border-t-1 md:border-t-0 border-gray-200 focus-within:border focus-within:border-gray-400">
+                        <label for="modal-guest-input"
+                            class="block text-sm font-semibold text-gray-600 pl-4 py-2">GUESTS</label>
+                        <input readonly placeholder="Add guests" type="search" id="modal-guest-input"
+                            class=" relative w-full h-full mt-1  outline-none border-none bg-transparent appearance-none pl-4 pb-4">
+                    </div>
+                </div>
+                <!-- BOTON Modal-->
+                <div class="md:w-full md:flex md:flex-1/3 md:px-auto md:mx-auto flex-growflex-grow">
+                    <button type="submit" class="w-27 h-8 flex left-1/2 -translate-x-1/2 md:translate-x-0 transform md:transform-none absolute md:static bottom-5 items-center space-x-2 p-4
+                     bg-[#eb5757] text-white rounded-xl m-auto hover:bg-red-400 transition duration-300 mt-auto  "
+                        id="search-modal-button">
+                        &nbsp;<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="white" class="size-5">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                        </svg>
+                        &nbsp;&nbsp;search
+                    </button>
+                </div>
+
+            </nav>
+            <!-- LOCACIONES-->
+            <div class="h-full text-gray-600 ">
+                <ul class=" p-2  min-h-30 hidden" id="location-opts">
+                    <!-- LISTA DE CIUDADES-->
+                    <li class=" p-1 my-2 flex items-center space-x-2 cursor-pointer"><svg
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="#4B5563" class="size-4">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                        </svg>
+                        <span>Vaasa, Finland</span>
+                    </li>
+                </ul>
+            </div>
+            <!-- CONTADOR-->
+            <div class=" absolute h-full min-h-30 pl-4 hidden md:left-1/2 md:-translate-x-1/2 md:transform"
+                id="contador-modal">
+                <div class=" py-3">
+                    <h3>Adults</h3>
+                    <p class="text-gray-300">Ages 13 or above</p>
+                    <div id="buttons-guest">
+                        <button class="cursor-pointer bg-gray-100 border border-gray-400 rounded-md text-gray-600 px-2 "
+                            value="-">-</button>
+                        <span class="mx-5" id="display">0</span>
+                        <button
+                            class=" cursor-pointer mt-3 bg-gray-100 border border-gray-400 rounded-md text-gray-600 px-2 "
+                            value="+">+</button>
+                    </div>
+                </div>
+                <div class=" py-3">
+                    <h3>Children</h3>
+                    <p class="text-gray-300">Ages 13 or below</p>
+                    <div id="buttons-guest-n">
+                        <button class="cursor-pointer bg-gray-100 border border-gray-400 rounded-md text-gray-600 px-2 "
+                            value="-">-</button>
+                        <span class="mx-5" id="display-n">0</span>
+                        <button
+                            class="cursor-pointer mt-3 bg-gray-100 border border-gray-400 rounded-md text-gray-600 px-2 "
+                            value="+">+</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
 </body>
 
 </html>
